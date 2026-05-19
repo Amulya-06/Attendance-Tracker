@@ -1,0 +1,448 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    --background: oklch(0.985 0.003 264);
+    --foreground: oklch(0.13 0.02 264);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.13 0.02 264);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.13 0.02 264);
+    --primary: oklch(0.56 0.16 188);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.94 0.03 264);
+    --secondary-foreground: oklch(0.35 0.1 264);
+    --muted: oklch(0.94 0.02 264);
+    --muted-foreground: oklch(0.52 0.05 264);
+    --accent: oklch(0.94 0.04 264);
+    --accent-foreground: oklch(0.35 0.1 264);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.88 0.04 264);
+    --input: oklch(0.93 0.03 264);
+    --ring: oklch(0.52 0.22 264);
+    --radius: 0.75rem;
+
+    /* chart */
+    --chart-1: oklch(0.6 0.2 264);
+    --chart-2: oklch(0.55 0.18 200);
+    --chart-3: oklch(0.65 0.18 150);
+    --chart-4: oklch(0.7 0.15 50);
+    --chart-5: oklch(0.6 0.2 20);
+
+    /* sidebar */
+    --sidebar: oklch(0.97 0.015 264);
+    --sidebar-foreground: oklch(0.13 0.02 264);
+    --sidebar-primary: oklch(0.56 0.16 188);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.92 0.04 264);
+    --sidebar-accent-foreground: oklch(0.35 0.1 264);
+    --sidebar-border: oklch(0.88 0.04 264);
+    --sidebar-ring: oklch(0.52 0.22 264);
+
+    /* ── App light palette ── */
+    /* Page bg is tinted so white cards pop against it */
+    --app-bg: oklch(0.96 0.012 210);
+    --app-bg-card: oklch(0.995 0.003 210);
+    --app-bg-elevated: oklch(1 0 0);
+    --app-bg-muted: oklch(0.92 0.018 210);
+    --app-bg-input: oklch(0.975 0.007 210);
+
+    --app-border: oklch(0.88 0.03 210);
+    --app-border-mid: oklch(0.8 0.05 210);
+    --app-border-strong: oklch(0.66 0.08 210);
+
+    --app-text-primary: oklch(0.13 0.02 264);
+    --app-text-secondary: oklch(0.36 0.03 210);
+    --app-text-muted: oklch(0.52 0.03 210);
+    --app-text-faint: oklch(0.64 0.02 210);
+
+    --app-accent: oklch(0.56 0.16 188);
+    --app-accent-hover: oklch(0.5 0.16 188);
+    --app-accent-bg: oklch(0.9 0.05 188);
+    --app-accent-bg-hover: oklch(0.86 0.07 188);
+    --app-accent-border: oklch(0.76 0.1 188);
+    --app-accent-text: oklch(0.36 0.11 188);
+
+    --app-grid-line: oklch(0.58 0.04 210);
+
+    /* status — light */
+    --status-present-bg: oklch(0.92 0.08 152);
+    --status-present-border: oklch(0.7 0.14 152);
+    --status-present-text: oklch(0.29 0.12 152);
+
+    --status-absent-bg: oklch(0.94 0.07 24);
+    --status-absent-border: oklch(0.72 0.15 24);
+    --status-absent-text: oklch(0.34 0.14 24);
+
+    --status-clear-bg: oklch(0.93 0.01 0);
+    --status-clear-border: oklch(0.75 0.02 0);
+    --status-clear-text: oklch(0.34 0.01 0);
+
+    --status-ongoing-bg: oklch(0.94 0.08 72);
+    --status-ongoing-border: oklch(0.75 0.14 72);
+    --status-ongoing-text: oklch(0.36 0.14 72);
+
+    --status-pending-bg: oklch(0.95 0.01 210);
+    --status-pending-border: oklch(0.82 0.03 210);
+    --status-pending-text: oklch(0.46 0.03 210);
+}
+
+.dark {
+    --background: oklch(0.1 0.015 264);
+    --foreground: oklch(0.96 0.005 264);
+    --card: oklch(0.14 0.02 264);
+    --card-foreground: oklch(0.96 0.005 264);
+    --popover: oklch(0.14 0.02 264);
+    --popover-foreground: oklch(0.96 0.005 264);
+    --primary: oklch(0.68 0.14 188);
+    --primary-foreground: oklch(0.1 0.01 210);
+    --secondary: oklch(0.2 0.03 264);
+    --secondary-foreground: oklch(0.96 0.005 264);
+    --muted: oklch(0.2 0.025 264);
+    --muted-foreground: oklch(0.62 0.05 264);
+    --accent: oklch(0.2 0.03 264);
+    --accent-foreground: oklch(0.96 0.005 264);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 12%);
+    --ring: oklch(0.67 0.18 264);
+
+    --chart-1: oklch(0.67 0.18 264);
+    --chart-2: oklch(0.62 0.18 200);
+    --chart-3: oklch(0.68 0.16 150);
+    --chart-4: oklch(0.72 0.14 70);
+    --chart-5: oklch(0.65 0.18 25);
+
+    --sidebar: oklch(0.13 0.02 264);
+    --sidebar-foreground: oklch(0.96 0.005 264);
+    --sidebar-primary: oklch(0.68 0.14 188);
+    --sidebar-primary-foreground: oklch(0.1 0.01 210);
+    --sidebar-accent: oklch(0.2 0.03 264);
+    --sidebar-accent-foreground: oklch(0.96 0.005 264);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.67 0.18 264);
+
+    /* ── App dark palette ── */
+    --app-bg: oklch(0.08 0.01 210);
+    --app-bg-card: oklch(0.14 0.014 210 / 0.72);
+    --app-bg-elevated: oklch(0.16 0.016 210);
+    --app-bg-muted: oklch(0.19 0.02 210);
+    --app-bg-input: oklch(0.19 0.018 210);
+
+    --app-border: oklch(0.24 0.018 210 / 0.6);
+    --app-border-mid: oklch(0.32 0.02 210);
+    --app-border-strong: oklch(0.42 0.03 210);
+
+    --app-text-primary: oklch(0.96 0.005 264);
+    --app-text-secondary: oklch(0.74 0.03 210);
+    --app-text-muted: oklch(0.58 0.03 210);
+    --app-text-faint: oklch(0.44 0.02 210);
+
+    --app-accent: oklch(0.72 0.12 188);
+    --app-accent-hover: oklch(0.76 0.12 188);
+    --app-accent-bg: oklch(0.72 0.12 188 / 0.16);
+    --app-accent-bg-hover: oklch(0.72 0.12 188 / 0.24);
+    --app-accent-border: oklch(0.72 0.12 188 / 0.38);
+    --app-accent-text: oklch(0.76 0.12 188);
+
+    --app-grid-line: oklch(0.6 0.03 210);
+
+    /* status — dark */
+    --status-present-bg: oklch(0.2 0.05 152 / 0.54);
+    --status-present-border: oklch(0.44 0.12 152 / 0.6);
+    --status-present-text: oklch(0.74 0.12 152);
+
+    --status-absent-bg: oklch(0.2 0.05 24 / 0.54);
+    --status-absent-border: oklch(0.5 0.15 24 / 0.6);
+    --status-absent-text: oklch(0.74 0.16 24);
+
+    --status-clear-bg: oklch(0.2 0.01 0 / 0.5);
+    --status-clear-border: oklch(0.46 0.015 0 / 0.6);
+    --status-clear-text: oklch(0.74 0.015 0);
+
+    --status-ongoing-bg: oklch(0.22 0.06 72 / 0.5);
+    --status-ongoing-border: oklch(0.55 0.12 72 / 0.6);
+    --status-ongoing-text: oklch(0.8 0.11 72);
+
+    --status-pending-bg: oklch(0.18 0.012 210 / 0.5);
+    --status-pending-border: oklch(0.32 0.015 210 / 0.6);
+    --status-pending-text: oklch(0.56 0.02 210);
+}
+
+@theme inline {
+    --font-sans: "Geist Variable", sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.5);
+    --radius-md: calc(var(--radius) * 0.75);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 2);
+    --radius-3xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+    /* Apply border/outline to everything EXCEPT html and body
+       to prevent hairline artifacts in safe-area zones */
+    *:not(html):not(body) {
+        @apply border-border outline-ring/50;
+    }
+    * {
+        /* Remove tap flash on mobile */
+        -webkit-tap-highlight-color: transparent;
+    }
+    body {
+        background-color: var(--app-bg);
+        color: var(--app-text-primary);
+        @apply font-sans;
+        /* Smooth momentum scroll on iOS */
+        -webkit-overflow-scrolling: touch;
+        /* Extend into the top safe area so bg fills behind the status bar */
+        padding-top: env(safe-area-inset-top);
+    }
+    html {
+        @apply font-sans;
+        /* Prevent font inflation on orientation change */
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        /* Fill entire screen including safe-area zones with app background.
+           This is what makes the top strip and bottom bar match the theme. */
+        background-color: var(--app-bg);
+        min-height: 100dvh;
+        /* Kill any hairline border that bleeds from the * rule */
+        border: none !important;
+        outline: none !important;
+    }
+    body {
+        /* Also explicitly zero border/outline on body */
+        border: none !important;
+        outline: none !important;
+    }
+    /* Prevent iOS zoom on input focus — must be 16px or larger */
+    input,
+    textarea,
+    select {
+        font-size: 16px !important;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    button,
+    a,
+    [role="button"] {
+        user-select: none;
+        -webkit-user-select: none;
+    }
+}
+
+@layer components {
+    .app-shell-frame {
+        position: relative;
+        isolation: isolate;
+    }
+    .app-shell-frame::before,
+    .app-shell-frame::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .app-shell-frame::before {
+        background:
+            radial-gradient(circle at top left, color-mix(in oklch, var(--app-accent) 18%, transparent) 0, transparent 28%),
+            radial-gradient(circle at top right, color-mix(in oklch, var(--status-ongoing-text) 12%, transparent) 0, transparent 24%),
+            radial-gradient(circle at bottom center, color-mix(in oklch, var(--app-accent) 10%, transparent) 0, transparent 30%);
+        opacity: 0.9;
+    }
+    .app-shell-frame::after {
+        background-image: linear-gradient(var(--app-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--app-grid-line) 1px, transparent 1px);
+        background-size: 48px 48px;
+        opacity: 0.02;
+    }
+
+    .app-surface {
+        background: color-mix(in oklch, var(--app-bg-card) 90%, transparent);
+        border: 1px solid var(--app-border);
+        border-radius: 1.5rem;
+        backdrop-filter: blur(16px);
+        box-shadow: 0 14px 40px color-mix(in oklch, var(--app-accent) 6%, transparent);
+    }
+
+    /* Cards */
+    .app-card {
+        background: var(--app-bg-card);
+        border: 1px solid var(--app-border);
+        border-radius: 1rem;
+        backdrop-filter: blur(12px);
+    }
+    .app-card-elevated {
+        background: var(--app-bg-elevated);
+        border: 1px solid var(--app-border-mid);
+        border-radius: 1rem;
+        box-shadow:
+        0 1px 3px oklch(0.5 0.1 264 / 0.08),
+        0 4px 16px oklch(0.5 0.1 264 / 0.06);
+    }
+
+    /* Inputs */
+    .app-input {
+        width: 100%;
+        padding: 0.625rem 0.875rem;
+        border-radius: 0.75rem;
+        border: 1.5px solid var(--app-border);
+        background: var(--app-bg-input);
+        color: var(--app-text-primary);
+        /* Keep 16px so iOS doesn't zoom */
+        font-size: 16px;
+        outline: none;
+        transition:
+        border-color 0.15s,
+        box-shadow 0.15s,
+        background 0.15s;
+    }
+    .app-input:focus {
+        border-color: var(--app-accent);
+        background: var(--app-bg-card);
+        box-shadow: 0 0 0 3px var(--app-accent-bg);
+    }
+    .app-input::placeholder {
+        color: var(--app-text-faint);
+    }
+
+    /* Buttons */
+    /* Solid accent button — used for primary CTAs */
+    .app-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1.125rem;
+        border-radius: 0.75rem;
+        border: none;
+        background: var(--app-accent);
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.15s;
+        cursor: pointer;
+        box-shadow: 0 2px 12px
+        color-mix(in oklch, var(--app-accent) 30%, transparent);
+    }
+    .app-btn-primary:hover {
+        background: var(--app-accent-hover);
+    }
+    .app-btn-primary:active {
+        transform: scale(0.97);
+        box-shadow: 0 1px 6px
+        color-mix(in oklch, var(--app-accent) 20%, transparent);
+    }
+
+    .app-btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        border: 1px solid transparent;
+        background: transparent;
+        color: var(--app-text-muted);
+        transition: all 0.15s;
+        cursor: pointer;
+    }
+    .app-btn-ghost:hover {
+        background: var(--app-bg-muted);
+        color: var(--app-text-primary);
+        border-color: var(--app-border);
+    }
+
+    /* Typography helpers */
+    .app-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--app-accent);
+        margin-bottom: 0.5rem;
+    }
+    .app-divider {
+        height: 1px;
+        background: var(--app-border);
+        margin-top: 1rem;
+    }
+    .app-section-label {
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--app-text-faint);
+        margin-bottom: 0.75rem;
+    }
+
+    /* Status pills */
+    .status-present {
+        background: var(--status-present-bg);
+        border-color: var(--status-present-border);
+        color: var(--status-present-text);
+    }
+    .status-absent {
+        background: var(--status-absent-bg);
+        border-color: var(--status-absent-border);
+        color: var(--status-absent-text);
+    }
+    .status-clear {
+        background: var(--status-clear-bg);
+        border-color: var(--status-clear-border);
+        color: var(--status-clear-text);
+    }
+    .status-ongoing {
+        background: var(--status-ongoing-bg);
+        border-color: var(--status-ongoing-border);
+        color: var(--status-ongoing-text);
+    }
+    .status-pending {
+        background: var(--status-pending-bg);
+        border-color: var(--status-pending-border);
+        color: var(--status-pending-text);
+    }
+
+    /* Dialog overlay blur — correct Radix selector */
+    [data-radix-dialog-overlay] {
+        backdrop-filter: blur(6px) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+    }
+}
